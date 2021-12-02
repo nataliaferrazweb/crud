@@ -42,23 +42,4 @@ class ContactsDAO extends Conection
             echo $ex->getMessage();
         }
     }
-
-    public function getAllContacts(): array
-    {
-        try {
-            $statement = $this->pdo
-                ->prepare('SELECT
-                    *
-                FROM contacts
-                ORDER BY id 
-            ;');
-
-            $statement->execute();
-            $contacts = $statement->fetchAll(\PDO::FETCH_ASSOC);
-
-            return $contacts;
-        } catch (PDOException $ex) {
-            echo $ex->getMessage();
-        }
-    }
 }
