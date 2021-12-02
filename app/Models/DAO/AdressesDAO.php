@@ -1,9 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: User
- * Date: 28/11/2021
- * Time: 21:54
+ * User: Natalia Ferraz
  */
 
 namespace App\Models\DAO;
