@@ -64,27 +64,4 @@ class AdressesDAO extends Conection
             echo $ex->getMessage();
         }
     }
-
-    public function getAllStocksByUser(int $limit): array
-    {
-        try {
-            $statement = $this->pdo
-                ->prepare('SELECT
-                    *
-                FROM stocks
-                WHERE
-                    users_id = :usersId
-                ORDER BY id DESC
-                LIMIT 0, :limit
-            ;');
-            $statement->bindParam(':usersId', $_SESSION['userId'], \PDO::PARAM_INT);
-            $statement->bindParam(':limit', $limit, \PDO::PARAM_INT);
-            $statement->execute();
-            $stocks = $statement->fetchAll(\PDO::FETCH_ASSOC);
-
-            return $stocks;
-        } catch (PDOException $ex) {
-            echo $ex->getMessage();
-        }
-    }
 }
